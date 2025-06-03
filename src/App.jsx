@@ -1,16 +1,15 @@
-import React from 'react';
-import './style.css';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Success from './components/Success';
 
 function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1>
-                    Welcome to the React App
-                </h1>
-            </header>
-        </div>
-    );
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />} />
+      <Route path="/success" element={<Success />} />
+    </Routes>
+  );
 }
+
 
 export default App;
