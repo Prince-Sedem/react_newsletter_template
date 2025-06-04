@@ -20,7 +20,8 @@ function Layout() {
                 Stay Updated!
             </Header>
             <Text>
-                Join 60,000+ product managers receiving monyhly updates on.
+                Join 60,000+ product managers receiving monthly 
+                updates on.
             </Text>
                 {items.map((item, index) => (
                     <Row key={index}>
