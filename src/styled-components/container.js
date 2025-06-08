@@ -50,6 +50,7 @@ font-size: clamp(0.4rem, 1.5vw, 0.7rem);
     font-size: 14px;
     margin-right: 35px;
     margin-top: 30px;
+    margin-bottom: 30px;
   }
 `
 
@@ -100,16 +101,17 @@ padding: 5px;
 margin: 20px;
 background-image: url('/images/web-hosting.png');
 background-repeat: no-repeat;
-background-position: cover;
+background-position: right 30% top 20%;
 max-width: 300px;
 height: 62vh;
 border-radius: 15px;
   @media (max-width: 768px) {
     grid-row: 1; /* 👈 Appears first on small screens */
-    width: 100%;
+    max-width: 500px;
+    background-position: right 20% bottom 40%;
     padding: 0;
     margin: 0;
-    height: 40vh;
+    height: 45vh;
     border-radius: 0 0 40px 40px;
   }
 `
@@ -163,10 +165,22 @@ background: #fff;
 display: flex;
 flex-direction: column;
 float: left;
-width: 350px;
+width: 280px;
 height: 40vh;
-border-radius: 10px;
+border-radius: 30px;
 padding: 50px;
+padding-top: 30px;
+padding-bottom: 60px
+    @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 20px;
+    margin: 20px;
+  }
+    @media (max-width: 480px) {
+    font-size: 14px;
+    padding: 20px;
+    margin: 0;
+  }
 
 `
 export const SuccessImage = styled.div`
@@ -174,31 +188,46 @@ background-image: url('/images/checked.png');
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
-width: 30px;
-height: 30px;
+width: 35px;
+height: 35px;
 flex-shrink: 0;
-border-radius: 8px;
+border-radius: 10px;
+    @media (max-width: 768px) {
+    margin-top: 80px;
+  }
+
 `
 export const SuccessHeader = styled.div`
 font-weight: bold;
-font-size: 35px;
+text-align: left;          /* 👈 align text to the left */
+font-size: clamp(2rem, 2.5vw, 4rem);
 margin-bottom: 20px;
 margin-top: 20px;
+max-width: 300px;
 `
 export const SuccessText = styled.div`
-line-height: 1.5;
+font-size: clamp(0.4rem, 1.5vw, 0.7rem);
+  line-height: 1.5;
+  text-align: left;          /* 👈 align text to the left */
+  max-width: 300px;          /* 👈 control width so text wraps */
+      @media (max-width: 768px) {
+    font-size: 14px;
+    max-width: 250px;          /* 👈 control width so text wraps */
+
+
+  }
 `
 
 export const Span = styled.div`
 font-weight: bold;
 `
 export const SuccessButton = styled.div`
+font-size: clamp(0.4rem, 1.5vw, 0.7rem);
  padding: 10px;
   width: 250px;
   border-radius: 7px;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
+  margin: 20px 0;
+  margin-bottom: 40px;
   color: white;
   border: none;
   cursor: pointer;
@@ -208,7 +237,13 @@ export const SuccessButton = styled.div`
     background: linear-gradient(135deg, #e01944, #e73a13); /* 👈 Darker on hover */
   }
     @media (max-width: 768px) {
-    width: 100%;
+    width: 100px
+    margin-top: 10px;
+  }
+    @media (max-width: 480px) {
+      width: 100px
+      font-size: clamp(0.4rem, 1.5vw, 0.7rem);
     font-size: 14px;
+    margin-top: 480px;
   }
 `
