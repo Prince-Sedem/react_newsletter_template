@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 
 
@@ -23,12 +24,22 @@ border-raduis: 4px;
 width: 225px;
 padding: 10px;
 border-radius: 7px;
-border: 1px solid gray;
+border: 1px solid ${props => props.error ? "#ff0000": "#d9d9d6"};
+background-color: ${props => props.error ? "#f5afae": ""};
 cursor: pointer;
-&::placeholder{font-style: italic; }
+&::placeholder{font-style: italic;
+color:  ${props => props.error ? "#f52b27": ""};
+background-color:  ${props => props.error ? "#f52b27": ""};
+ }
     @media (max-width: 768px) {
     width: 90%;
-  };
+  }
+&:focus{border-color: ${props => props.error ? "#ff0000": "#07575b"};
+&:focus::placeholder {
+    color:  ${props => props.error ? "#f5afae": ""};
+    background-color:  ${props => props.error ? "#f5afae": ""};
+  }
+}    
 `
 export const Button = styled.button`
 font-size: clamp(0.4rem, 1.5vw, 0.7rem);
@@ -70,6 +81,10 @@ margin-left: 2rem;
 export const Form = styled.form`
 display: flex;
 flex-direction: column;
+`
+export const ErorMessage = styled.span`
+font-size: 12px;
+color: "#f52b27";
 `
 export const FormDetails = styled.div`
 align-items: center;
@@ -140,10 +155,16 @@ max-width: 500px;
     
   }
 `
+export const EmailSpan = styled.div`
+color: red;
+`
+
+
 export const TextEmail = styled.div`
+display: flex;
+gap: 6rem;
 font-size: clamp(0.4rem, 1.5vw, 0.6rem);
 font-weight: semi-bold;
-margin-right: 15rem;
 padding: 10px 0;
     @media (max-width: 768px) {
     margin-top: 10px;
@@ -218,6 +239,14 @@ font-size: clamp(0.4rem, 1.5vw, 0.7rem);
   }
 `
 
+export const StyledLink = styled(Link)`
+  color: white;
+  font-weight: semi-bold;
+  text-decoration: none;
+  cursor: pointer;
+
+
+`
 export const Span = styled.div`
 font-weight: bold;
 `

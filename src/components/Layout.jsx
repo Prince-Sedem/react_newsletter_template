@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { useUtils } from '../useUtils';
-import { Container, Input, Button, FormConatiner, Header,Text, Image, Form, ImageList, TextBox, Row, TextEmail } from '../styled-components/container';
+import { Container, Input, Button, FormConatiner, Header,Text, Image, Form, ImageList, TextBox, Row, TextEmail, ErorMessage, EmailSpan } from '../styled-components/container';
 
 const items = [
   { image: '/images/checked.png', text: 'Product discovery and building what matters.' },
@@ -11,8 +11,18 @@ const items = [
 
 function Layout() {
 
+    const navigate = useNavigate()
 
-    const {handleSubmit, error, email, setEmail} = useUtils()
+
+    const {handleSubmit, error, email, setEmail, isValid} = useUtils()
+    const handleFormSubmit = e => {
+        e.preventDefault()
+        const submission = handleSubmit(e) 
+        if (!isValid && submission) {
+            navigate("/success", {state:{email}})
+
+        }
+    }
   return (
     <Container>
         <FormConatiner>
@@ -31,16 +41,21 @@ function Layout() {
                         </TextBox>
                     </Row>
                 ))}
-            <TextEmail>
-                Email Address
-            </TextEmail>    
-            <Form>
-                <Input placeholder='enter your email'/>
-                <Link to="/success">
-                    <Button>
+            <Form
+            onSubmit={handleFormSubmit}
+            >
+                <TextEmail>Email Address <EmailSpan>{error && <ErorMessage>{error}</ErorMessage>}</EmailSpan></TextEmail>    
+                <Input placeholder='enter your email'
+                error={!!error}
+                value={email}
+                onChange={({target})=> setEmail(target.value)}
+                />
+                    <Button 
+                    name='Submit'
+                    type='Submit'
+                    >
                         Subcribe to monthly newsletter
                     </Button>
-                </Link>
             </Form>
         </FormConatiner>
         <div>
