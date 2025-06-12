@@ -10,19 +10,24 @@ export const useUtils = () => {
     //Handle error state
     const[email, setEmail] = useState("")
     const[error, setError] = useState(null)
+    const[isValid, setIsValid] = useState(false)
 
     //Handle submit
     const handleSubmit = (e) => {
         e.preventDefault()
         setError(null)
         if (!email) {
-            setError("Input cannot be empty")
+            setError("valid email required")
+            return false
         }
         if (!validateEmail(email)) {
-            setError("Enter a valid email addresss")
+            setError("valid email required")
+            return false
         }
+        setIsValid(true)
+        return true
     }
-    return{handleSubmit, error, email, setEmail}
+    return{handleSubmit, error, email, setEmail, isValid}
 
 
 }
