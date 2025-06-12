@@ -1,6 +1,11 @@
-import {SuccessContainer, SuccessImage, SuccessHeader, SuccessText, Span, SuccessButton } from '../styled-components/container';
+import { useLocation, Link} from "react-router-dom";
+
+import {SuccessContainer, SuccessImage, SuccessHeader, SuccessText, Span, SuccessButton, StyledLink } from '../styled-components/container';
 
 function Success() {
+  const location = useLocation()
+  const email = location.state?.email
+
   return (
     <SuccessContainer>
         <SuccessImage />
@@ -9,11 +14,11 @@ function Success() {
         </SuccessHeader>
         <SuccessText>
             A confirmation email has been sent to 
-            <Span> news@example.com</Span>.
+            <Span>{email}</Span>.
             Please open it and click the button inside to confirm your subscription.
         </SuccessText>
         <SuccessButton>
-            Dismiss message
+            <StyledLink to="/">Dismiss message</StyledLink>
         </SuccessButton>
 
     </SuccessContainer>
