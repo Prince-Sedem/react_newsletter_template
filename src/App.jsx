@@ -1,12 +1,12 @@
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import Layout from './components/Layout';
+import NewsLetterForm from './components/NewsLetterForm';
 import Success from './components/Success';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout />} />
+        <Route path="/" element={<NewsLetterForm />} />
         <Route path="/success" element={<Success />} />
       </Routes>
     </Router>
