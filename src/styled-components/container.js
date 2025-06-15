@@ -20,26 +20,38 @@ grid-template-columns: 1fr 1fr; /* 👈 two equal columns */
 `
 export const Input = styled.input`
 font-size: clamp(0.4rem, 1.5vw, 0.7rem);
-border-raduis: 4px;
 width: 225px;
 padding: 10px;
 border-radius: 7px;
 border: 1px solid ${props => props.error ? "#ff0000": "#d9d9d6"};
 background-color: ${props => props.error ? "#f5afae": ""};
 cursor: pointer;
+&:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
 &::placeholder{font-style: italic;
 color:  ${props => props.error ? "#f52b27": ""};
 background-color:  ${props => props.error ? "#f52b27": ""};
- }
-    @media (max-width: 768px) {
-    width: 90%;
-  }
-&:focus{border-color: ${props => props.error ? "#ff0000": "#07575b"};
+}
+&:focus{
+  border-color: ${props => props.error ? "#ff0000": "#07575b"};
+  outline: none;
+
+
+}
 &:focus::placeholder {
     color:  ${props => props.error ? "#f5afae": ""};
     background-color:  ${props => props.error ? "#f5afae": ""};
   }
-}    
+
+
+
+@media (max-width: 768px) {
+  width: 90%;
+  outline: none;
+  }
+
 `
 export const Button = styled.button`
 font-size: clamp(0.4rem, 1.5vw, 0.7rem);
@@ -169,11 +181,15 @@ padding: 10px 0;
     @media (max-width: 768px) {
     margin-top: 10px;
     font-size: 14px;
+    gap: 11rem;
+
+    
     
   }
-    @media (max-width: 480px) {
+  @media (max-width: 480px) {
     margin-top: 10px;
     font-size: 12px;
+    gap: 9rem;
     
   }
 `
@@ -209,12 +225,15 @@ background-image: url('/images/checked.png');
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
-width: 35px;
-height: 35px;
+width: 40px;
+height: 40px;
 flex-shrink: 0;
 border-radius: 10px;
     @media (max-width: 768px) {
-    margin-top: 80px;
+    margin-top: 12vh;
+  }
+    @media (max-width: 480px) {
+    margin-top: 12vh;
   }
 
 `
@@ -225,6 +244,9 @@ font-size: clamp(2rem, 2.5vw, 4rem);
 margin-bottom: 20px;
 margin-top: 20px;
 max-width: 300px;
+    @media (max-width: 768px) {
+    margin-top: 20px;
+  }
 `
 export const SuccessText = styled.div`
 font-size: clamp(0.4rem, 1.5vw, 0.7rem);
@@ -266,13 +288,13 @@ font-size: clamp(0.4rem, 1.5vw, 0.7rem);
     background: linear-gradient(135deg, #e01944, #e73a13); /* 👈 Darker on hover */
   }
     @media (max-width: 768px) {
-    width: 100px
+    width: 120px
     margin-top: 10px;
   }
     @media (max-width: 480px) {
-      width: 100px
+      width: 120px
       font-size: clamp(0.4rem, 1.5vw, 0.7rem);
     font-size: 14px;
-    margin-top: 480px;
+    margin-top: 42vh;
   }
 `
